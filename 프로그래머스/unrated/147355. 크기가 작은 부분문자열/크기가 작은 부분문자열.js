@@ -1,15 +1,19 @@
 function solution(t, p) {
     var answer = 0;
-    let num = '';
+    let str = '';
 
     for(let i = 0; i < t.length - p.length + 1; i++){
-        //num = t.slice(i, p.length + i); //i가 값이 오르면 같이 올라야함
-        num = t.substr(i, p.length);
-        console.log(num)
-        if(Number(num) <= Number(p)){
+        //str = t.slice(i, p.length + i); //i가 값이 오르면 last index도 같이 올라야함
+        //str = t.substring(i, p.length + i);
+        str = t.substring(p.length + i , i);
+        //str = t.substr(i, p.length);
+        
+        if(str <= p){
             answer++;
         }
-        num = '';
+        //str <= p && answer ++
+        
+        str = '';
     }
    
     return answer;
