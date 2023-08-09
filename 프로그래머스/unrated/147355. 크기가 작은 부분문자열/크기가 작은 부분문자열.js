@@ -1,12 +1,12 @@
 function solution(t, p) {
     var answer = 0;
     let num = '';
-    let num2 = Number(p);
 
     for(let i = 0; i < t.length - p.length + 1; i++){
-        num = t.slice(i, p.length + i);
+        //num = t.slice(i, p.length + i); //i가 값이 오르면 같이 올라야함
+        num = t.substr(i, p.length);
         console.log(num)
-        if(Number(num) <= num2){
+        if(Number(num) <= Number(p)){
             answer++;
         }
         num = '';
@@ -29,3 +29,6 @@ function solution(t, p) {
 // 12 23 34 45 56 67  6개
 
 //for 문 처음에 0번째 뽑고 다음 돌 때 그 다음꺼 뽑고,,, 길이고정
+
+
+//substr(index, 길이)
