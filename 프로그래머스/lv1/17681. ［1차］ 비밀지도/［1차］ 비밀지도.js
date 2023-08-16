@@ -7,7 +7,9 @@ function solution(n, arr1, arr2) {
     }
     for(let x of str1){
         str2.push(x.toString(2));
+        
     }
+    console.log(str2)
   
     for(let y of str2){
         answer.push(y.replaceAll(/1/g , '#').replaceAll(/0/g , ' ').padStart(n , ' '));
