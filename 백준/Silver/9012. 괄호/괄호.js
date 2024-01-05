@@ -1,24 +1,27 @@
-const fs = require('fs');
-const input = fs.readFileSync("/dev/stdin").toString().split("\n");
+let fs = require('fs');
+let input = fs.readFileSync('/dev/stdin').toString().split('\n');
+
 const caseCount = Number(input[0]);
 
-for(let i = 1; i <= caseCount; i++){
-    let stack = [];
-    let result = 'YES';
-    const cases = input[i];
-    
-    for(let j = 0; j < cases.length; j++){
-        if(cases[j] === '('){
-            stack.push(cases[j]);
-        } else {
-            if(stack.length === 0){
-                result = 'NO';
-            }
-            stack.pop();
-        }
-    }if(stack.length > 0){
-    result = 'NO';
-}
-    console.log(result);
-}
+for (let i = 1; i <= caseCount; i += 1) {
+  const cases = input[i];
+  const stack =  [];
+  let result = 'YES';
 
+  for (let j = 0; j < cases.length; j += 1) {
+    if (cases[j] === '(') {
+      stack.push(1);
+    } else {
+      if (!stack.pop()) {
+        result = 'NO';
+        break;
+      } 
+    }
+  }
+
+  if (stack.length !== 0) {
+    result = 'NO';
+  }
+
+  console.log(result);
+}
